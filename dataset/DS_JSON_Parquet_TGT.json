@@ -1,0 +1,23 @@
+{
+	"name": "DS_JSON_Parquet_TGT",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_JSON_Parquet_TGT",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@concat(\n    'json/',\n    formatDateTime(utcNow(),'yyyy'),'/',\n     formatDateTime(utcNow(),'MM'),'/',\n      formatDateTime(utcNow(),'dd')\n)",
+					"type": "Expression"
+				}
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
