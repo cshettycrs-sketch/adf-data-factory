@@ -20,6 +20,10 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
+							"wildcardFolderPath": {
+								"value": "snowflakes/*",
+								"type": "Expression"
+							},
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": false
 						},
