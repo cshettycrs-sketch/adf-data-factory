@@ -48,7 +48,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DS_snowflakes_Parquet_tgt",
+						"referenceName": "DS_SNOWFLAKEParquet_SRC_TRIGGER",
 						"type": "DatasetReference"
 					}
 				],
