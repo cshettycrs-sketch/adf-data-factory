@@ -1,0 +1,132 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ADF-VB8B-ETL-DEV-CRS"
+		},
+		"LS_ADLS_SNOWFLAKE_Parquet_accountKey": {
+			"value": ""
+		},
+		"LS_BULK_LOAD_Parquet_accountKey": {
+			"value": ""
+		},
+		"LS_BULK_LOAD_SRC_accountKey": {
+			"value": ""
+		},
+		"LS_CSV_accountKey": {
+			"value": ""
+		},
+		"LS_CSV_PARQUET_accountKey": {
+			"value": ""
+		},
+		"LS_EXCEL_Parquet_tgt_accountKey": {
+			"value": ""
+		},
+		"LS_JSON_Parquet_TGT_accountKey": {
+			"value": ""
+		},
+		"LS_Json_SRC_accountKey": {
+			"value": ""
+		},
+		"LS_Parquet_SQL_accountKey": {
+			"value": ""
+		},
+		"LS_SFTP_Parquet_TGT_accountKey": {
+			"value": ""
+		},
+		"LS_SFTP_Parquet_TGT_1_accountKey": {
+			"value": ""
+		},
+		"LS_SFTP_SRC_accountKey": {
+			"value": ""
+		},
+		"LS_SnowflakeTable_SRC_password": {
+			"value": ""
+		},
+		"LS_SqlServerTable_SRC_password": {
+			"value": ""
+		},
+		"ls_REST_Parquet_TGT_accountKey": {
+			"value": ""
+		},
+		"ls_SqlServer_src_password": {
+			"value": ""
+		},
+		"ls_excel_src_accountKey": {
+			"value": ""
+		},
+		"LS_ADLS_SNOWFLAKE_Parquet_properties_typeProperties_url": {
+			"value": "https://adlsdevvbsrc01crs.dfs.core.windows.net/"
+		},
+		"LS_BULK_LOAD_Parquet_properties_typeProperties_url": {
+			"value": "https://adlsdevvbsrc01crs.dfs.core.windows.net/"
+		},
+		"LS_BULK_LOAD_SRC_properties_typeProperties_url": {
+			"value": "https://adlsdevisionboardraw123.dfs.core.windows.net/"
+		},
+		"LS_CSV_properties_typeProperties_url": {
+			"value": "https://adlsdevisionboardraw123.dfs.core.windows.net/"
+		},
+		"LS_CSV_PARQUET_properties_typeProperties_url": {
+			"value": "https://adlsdevvbsrc01crs.dfs.core.windows.net/"
+		},
+		"LS_EXCEL_Parquet_tgt_properties_typeProperties_url": {
+			"value": "https://adlsdevvbsrc01crs.dfs.core.windows.net/"
+		},
+		"LS_JSON_Parquet_TGT_properties_typeProperties_url": {
+			"value": "https://adlsdevvbsrc01crs.dfs.core.windows.net/"
+		},
+		"LS_Json_SRC_properties_typeProperties_url": {
+			"value": "https://adlsdevisionboardraw123.dfs.core.windows.net/"
+		},
+		"LS_Parquet_SQL_properties_typeProperties_url": {
+			"value": "https://adlsdevvbsrc01crs.dfs.core.windows.net/"
+		},
+		"LS_SFTP_Parquet_TGT_properties_typeProperties_url": {
+			"value": "https://adlsdevvbsrc01crs.dfs.core.windows.net/"
+		},
+		"LS_SFTP_Parquet_TGT_1_properties_typeProperties_url": {
+			"value": "https://adlsdevvbsrc01crs.dfs.core.windows.net/"
+		},
+		"LS_SFTP_SRC_properties_typeProperties_url": {
+			"value": "https://adlsdevisionboardraw123.dfs.core.windows.net/"
+		},
+		"LS_SnowflakeTable_SRC_properties_typeProperties_database": {
+			"value": "DBAZURESNOW"
+		},
+		"LS_SqlServerTable_SRC_properties_typeProperties_server": {
+			"value": "localhost"
+		},
+		"LS_SqlServerTable_SRC_properties_typeProperties_database": {
+			"value": "VBPROJECT"
+		},
+		"LS_SqlServerTable_SRC_properties_typeProperties_userName": {
+			"value": "chethana"
+		},
+		"LS_snowflakes_Parquet_tgt_sasUri": {
+			"value": ""
+		},
+		"lS_RestAPI_SRC_properties_typeProperties_url": {
+			"value": "https://retoolapi.dev/8EbG8V/data"
+		},
+		"ls_REST_Parquet_TGT_properties_typeProperties_url": {
+			"value": "https://adlsdevvbsrc01crs.dfs.core.windows.net/"
+		},
+		"ls_SqlServer_src_properties_typeProperties_server": {
+			"value": "localhost"
+		},
+		"ls_SqlServer_src_properties_typeProperties_database": {
+			"value": "VBPROJECT"
+		},
+		"ls_SqlServer_src_properties_typeProperties_userName": {
+			"value": "chethana"
+		},
+		"ls_excel_src_properties_typeProperties_url": {
+			"value": "https://adlsdevisionboardraw123.dfs.core.windows.net/"
+		},
+		"trigger_snowflakes_properties_typeProperties_scope": {
+			"value": "/subscriptions/d77f4cb6-b53f-471b-b9f3-a10191332104/resourceGroups/VB_DEV_B8_ETL/providers/Microsoft.Storage/storageAccounts/blobstoragesnowflaketgt"
+		}
+	}
+}
