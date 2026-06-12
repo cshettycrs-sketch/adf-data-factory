@@ -55,6 +55,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_SFTP_SRC'"
 		},
+		"LS_SNOWFLAKEParquet_SRC_TRIGGER_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_SNOWFLAKEParquet_SRC_TRIGGER'"
+		},
 		"LS_SnowflakeTable_SRC_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_SnowflakeTable_SRC'"
@@ -381,7 +385,7 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "DS_snowflakes_Parquet_tgt",
+								"referenceName": "DS_SNOWFLAKEParquet_SRC_TRIGGER",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -401,7 +405,7 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/DS_snowflakes_Parquet_tgt')]",
+				"[concat(variables('factoryId'), '/datasets/DS_SNOWFLAKEParquet_SRC_TRIGGER')]",
 				"[concat(variables('factoryId'), '/datasets/DS_ADLS_SNOWFLAKE_Parquet')]"
 			]
 		},
@@ -1277,6 +1281,72 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/DS_SNOWFLAKEParquet_SRC_TRIGGER')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_SNOWFLAKEParquet_SRC_TRIGGER",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"folderPath": "snowflakes/2026",
+						"container": "input"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": [
+					{
+						"name": "INDEX",
+						"type": "DECIMAL",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "ORDER_ID",
+						"type": "UTF8"
+					},
+					{
+						"name": "ORDER_ITEM_ID",
+						"type": "DECIMAL",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "PRODUCT_ID",
+						"type": "UTF8"
+					},
+					{
+						"name": "SELLER_ID",
+						"type": "UTF8"
+					},
+					{
+						"name": "SHIPPING_LIMIT_DATE",
+						"type": "TIMESTAMP_MILLIS"
+					},
+					{
+						"name": "PRICE",
+						"type": "DECIMAL",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "FREIGHT_VALUE",
+						"type": "DECIMAL",
+						"precision": 10,
+						"scale": 2
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_SNOWFLAKEParquet_SRC_TRIGGER')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/DS_SnowflakeTable_SRC')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1360,7 +1430,10 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"folderPath": "snowflakes",
+						"folderPath": {
+							"value": "@concat(\n    'snowflakes/',\n    formatDateTime(utcNow(),'yyyy'),'/',\n     formatDateTime(utcNow(),'MM'),'/',\n      formatDateTime(utcNow(),'dd')\n)",
+							"type": "Expression"
+						},
 						"container": "input"
 					},
 					"compressionCodec": "snappy"
@@ -1576,6 +1649,19 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/LS_SNOWFLAKEParquet_SRC_TRIGGER')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('LS_SNOWFLAKEParquet_SRC_TRIGGER_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/LS_SnowflakeTable_SRC')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -1716,7 +1802,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Stopped",
+				"runtimeState": "Started",
 				"pipelines": [
 					{
 						"pipelineReference": {

@@ -55,6 +55,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_SFTP_SRC'"
 		},
+		"LS_SNOWFLAKEParquet_SRC_TRIGGER_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_SNOWFLAKEParquet_SRC_TRIGGER'"
+		},
 		"LS_SnowflakeTable_SRC_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_SnowflakeTable_SRC'"
@@ -233,6 +237,9 @@
 					},
 					"LS_SFTP_SRC_accountKey": {
 						"value": "[parameters('LS_SFTP_SRC_accountKey')]"
+					},
+					"LS_SNOWFLAKEParquet_SRC_TRIGGER_connectionString": {
+						"value": "[parameters('LS_SNOWFLAKEParquet_SRC_TRIGGER_connectionString')]"
 					},
 					"LS_SnowflakeTable_SRC_password": {
 						"value": "[parameters('LS_SnowflakeTable_SRC_password')]"

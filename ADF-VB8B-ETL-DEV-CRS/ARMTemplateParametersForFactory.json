@@ -41,6 +41,9 @@
 		"LS_SFTP_SRC_accountKey": {
 			"value": ""
 		},
+		"LS_SNOWFLAKEParquet_SRC_TRIGGER_connectionString": {
+			"value": ""
+		},
 		"LS_SnowflakeTable_SRC_password": {
 			"value": ""
 		},
